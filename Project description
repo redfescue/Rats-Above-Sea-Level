@@ -1,0 +1,11 @@
+This project uses an Arduino Uno R4 WIFi and an input from an IOT Remote to determine the altiude. This altitude is displayed on a servo-driven channel slider track.
+The main components are:
+          Arduino Uno R4 WiFi
+          BMP280 Pressure Sensor
+          Servo City HS-785HB Channel Slider Kit (discontinued)
+          Sparkfun Arduino and Breadboard Holder
+          Breadboard
+          GoBilda 3100ma-hr 6.8V batter (Servo City)
+
+The program takes as inputs the ambient pressure as measured by the BMP280 and the sea-level barometric pressure as entered on the IOT Remote and calculates the altitude. 
+This altitude is converted into a pulse width which is used to drive the servo motor to display the altitude in feet (Rats Above Sea Level).
