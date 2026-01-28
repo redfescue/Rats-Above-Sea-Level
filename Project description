@@ -1,5 +1,6 @@
 This project uses an Arduino Uno R4 WIFi and an input from an IOT Remote to determine the altiude. This altitude is displayed on a servo-driven channel slider track.
-The main components are:
+Arduino Cloud project - will not work with Arduino IDE
+The main components used are:
           Arduino Uno R4 WiFi
           BMP280 Pressure Sensor
           Servo City HS-785HB Channel Slider Kit (discontinued)
