@@ -1,4 +1,6 @@
-This project uses an Arduino Uno R4 WIFi and an input from an IOT Remote to determine the altiude. This altitude is displayed on a servo-driven channel slider track.
+Rats Above Sea Level is a altimeter which uses a servo-driven slider to indicate altitued. This altimeter is implemented two different ways. 
+The first uses an Arduino Uno R4 WIFi and an input from an IOT Remote to determine the altiude. 
+This altitude is displayed on a servo-driven channel slider track.
 Arduino Cloud project - will not work with Arduino IDE
 The main components used are:
           Arduino Uno R4 WiFi
