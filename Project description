@@ -4,14 +4,27 @@ Rats Above Sea Level is a altimeter which uses a servo-driven slider to indicate
 Both versions require an input of the current sea level barometric pressure. Sea level barometric pressure is entered into the Skech 
 in the IDE version and it is entered into the IOT dashboard on the WiFi version. 
 This altitude is displayed on a servo-driven channel slider track.
-The main components used are:
-          Arduino Uno  - IDE version
+
+The original IDE version uses the following parts:
+          Arduino Uno  
+          BMP280 Pressure Sensor
+          Ultrasonic sensor
+          Display
+          potientiometer
+          Servo City HS-785HB Channel Slider Kit (discontinued)
+          Breadboard 2X 400 pin
+          GoBilda 3100ma-hr 6.8V batter (Servo City)
+
+
+
+The IOT version uses
           Arduino Uno R4 WiFi - IOT Cloud 
           BMP280 Pressure Sensor
           Servo City HS-785HB Channel Slider Kit (discontinued)
           Sparkfun Arduino and Breadboard Holder
           Breadboard
           GoBilda 3100ma-hr 6.8V batter (Servo City)
+          IPad
 
 The program takes as inputs the ambient pressure as measured by the BMP280 and the sea-level barometric pressure as entered on the
 IDE or the IOT Remote and calculates the altitude. 
