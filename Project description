@@ -30,3 +30,6 @@ The program takes as inputs the ambient pressure as measured by the BMP280 and t
 IDE or the IOT Remote and calculates the altitude. 
 This altitude is converted into a pulse width which is used to drive the servo motor to display the altitude in
 feet (Rats Above Sea Level).
+
+The original IDE version displayed the altitude, barometic pressure, distance from ultrasonic sensor, and displayed an insulting
+message if you were closer than 30 cm to the sensor.
