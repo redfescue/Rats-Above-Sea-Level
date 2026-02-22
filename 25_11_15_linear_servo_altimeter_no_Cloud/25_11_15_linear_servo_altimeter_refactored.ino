@@ -1,21 +1,7 @@
 /*
   Linear Servo Altimeter - REFACTORED VERSION
-  
+  shortened refactor version to remove unneeded sections & correct error
   Original: 25_11_15_linear_servo_altimeter_no_Cloud.ino
-  Improvements:
-  - Extracted magic numbers to named constants
-  - Created helper functions for PWM signal generation
-  - Consolidated altitude calculations
-  - Added error handling and validation
-  - Improved code organization and readability
-  - Added detailed comments
-  
-  Hardware:
-  - BMP280 pressure/altitude sensor (I2C)
-  - HC-SR04 ultrasonic distance sensor (pins 11, 12)
-  - Servo City linear actuator on pin 10 (LIN)
-  - Dial servo on pin 9 (ALT)
-  - 16x2 LCD display
 */
 
 #include <LiquidCrystal.h>
@@ -115,6 +101,7 @@ void setup() {
   displayBarometricPressure();
   
   Serial.println(F("System initialized successfully"));
+  Serial.println();
 }
 
 // ============================================================================
@@ -156,12 +143,7 @@ void readAllSensors() {
   float altitudeMetersRaw = bmp.readAltitude(BAR_PRES * PASCALS_PER_INHG);
   altitudeMeters = altitudeMetersRaw;
   altitudeFeet = altitudeMeters * METERS_TO_FEET;
-  
-  // Validate altitude
-  if (!isValidAltitude(altitudeFeet)) {
-    Serial.println(F("WARNING: Invalid altitude reading"));
-    altitudeFeet = 0; // Default to 0 on error
-  }
+
 }
 
 boolean initializeBMP280() {
@@ -196,35 +178,12 @@ void measureDistance() {
   // Speed of sound = 340 m/s, distance = speed * time / 2
   distanceCM = (pulseDuration * 340.0) / 20000.0;
   
-  // Validate distance
-  if (!isValidDistance(distanceCM)) {
-    Serial.println(F("WARNING: Invalid distance reading"));
-    displayDistance();
-    return;
-  }
-  
   displayDistance();
   
   // Check for proximity warning
   if (distanceCM < DISTANCE_WARNING_CM) {
     triggerProximityWarning();
   }
-}
-
-// ============================================================================
-// VALIDATION FUNCTIONS
-// ============================================================================
-
-boolean isValidAltitude(float alt) {
-  return (alt >= MIN_SAFE_ALTITUDE_FEET && alt <= MAX_SAFE_ALTITUDE_FEET);
-}
-
-boolean isValidDistance(float dist) {
-  return (dist >= MIN_SAFE_DISTANCE_CM && dist <= MAX_SAFE_DISTANCE_CM);
-}
-
-boolean isValidPWM(int pulseWidth, int minPW, int maxPW) {
-  return (pulseWidth >= minPW && pulseWidth <= maxPW);
 }
 
 // ============================================================================
@@ -270,7 +229,7 @@ void updateAltimeterDisplay() {
   delay(1500);
   
   // Then send altitude-based pulse
-  sendPWMSignalWithValidation(ALT_PIN, altPW, 1700, 2650, ALT_PWM_CYCLES);
+  sendPWMSignalWithValidation(ALT_PIN, altPW, 400, 2650, ALT_PWM_CYCLES); //from 1700 to 400
   
   // Debug output
   Serial.print(F("Altimeter PW: "));
@@ -351,6 +310,7 @@ void displaySliderCurrentPosition() {
   Serial.print(F("Slider PW: "));
   Serial.print(sliderPW);
   Serial.println(F(" us"));
+  Serial.println();
 }
 
 // ============================================================================
