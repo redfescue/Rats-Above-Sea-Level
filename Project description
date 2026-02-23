@@ -3,7 +3,10 @@ Rats Above Sea Level is a altimeter which uses a servo-driven slider to indicate
           Arduino Cloud WiFi version
 Both versions require an input of the current sea level barometric pressure. Sea level barometric pressure is entered into the Skech 
 in the IDE version and it is entered into the IOT dashboard on the WiFi version. 
-This altitude is displayed on a servo-driven channel slider track.
+This altitude is displayed on a servo-driven channel slider track and also on a Dial Altimeter
+
+The IDE version was a mess because functions were added haphazzardly. I turned this program over to CoPilot for clean up
+the resulting code didn't quite work, so I corrected it and also removed some validations.
 
 The original IDE version uses the following parts:
           Arduino Uno  
