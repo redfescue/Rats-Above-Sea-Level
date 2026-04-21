@@ -1,0 +1,63 @@
+Rats above sea level – refactored program				2/18/26
+Changes validated in Steve’s machine, not GitHub
+
+Changes 
+1 	Altimeter wouldn’t read above 200 ft
+Line 273    was ALT_PIN, altPW, 1500, 2650
+	    Is  ALT_PIN, altPW, 400
+
+2.	Power up message includes “Your mom wears cowboy boots” – both versions
+Want to fix this; want power on message to “Rats above sea level”.  Also review other start up “Circuit digest” etc. remove
+
+Line 443 445	 from 	Ultra sonic   Distance meter
+			To	Rats Above   Sea Level
+Line 446, 450, 456, 462
+			From DISPLAY_DELAY_SHORT
+			To	DISPLAY_DELAY_LONG
+
+Line 449		from  Circuit digest
+			To	Altimeter and			
+
+Line 453		from	Your Mom Wears	
+			To	Dial Altimeter	
+			
+Line 455		from Army Boots
+			To	+ Temperature +
+
+Line 459		from	BMP280 test
+			To        Ultra Sonic
+
+Line 461		from  Temp Altitude
+			To      Distance Meter
+
+
+
+3.	If distance is >> ? it reads 0 cm – need to fix this
+Line 58	distance timeout    from  30000
+					To       300000
+There is a problem with the ultra sonic sensor not working sometimes, it does it with both old and new programs changing PW from 10 to 20 us doesn’t help 
+Try another sensor  - tried 2 other, not much difference, all would malfunction
+It’s possible all sensors are bad and have been selected out?
+
+
+4.	Do I want to eliminate some code? Why? It works fine now.
+	Candidate is Error Handling  (validation functions and error displays)
+161-164  validate altitude  NOW 147-151
+201-207  validate distance
+216-230  validation functions
+477-485   display error
+
+Plan – comment out and see if compliles, if so, upload and see if works
+161-167  - works with it out
+221-223 – works with it out
+201-209 – works with it out
+225-229 – works with it out
+230-235 – works with it out
+
+ 5. in serial print   want space between cycle – add space after slider pw 
+Line 356 “Serial.println();” OK 
+
+6.	lines 1-19 remove comments and just state “refactored by CoPilot with some changes”  imported code from circuit digest for ultrasonic distance
+
+7. in serial print want space between setup and program
+Line 118 added - OK
