@@ -8,6 +8,8 @@ This altitude is displayed on a servo-driven channel slider track and also on a 
 The IDE version was a mess because functions were added haphazzardly. I turned this program over to CoPilot for clean up
 the resulting code didn't quite work, so I corrected it and also removed some validations.
 
+The IDE version was submitted to Arduino Project Hub under the title "Rats Above Sea Level" on 4/21/26.
+
 The original IDE version uses the following parts:
           Arduino Uno  
           BMP280 Pressure Sensor
